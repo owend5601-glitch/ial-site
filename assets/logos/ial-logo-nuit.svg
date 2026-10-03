@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 64" width="164" height="64" role="img" aria-label="IAL">
+<title>IAL</title>
+<rect x="0" y="0" width="64" height="64" rx="14.00" fill="#f7f2e9"/>
+<rect x="10.00" y="14.00" width="7.00" height="40.00" rx="1.50" fill="#1b2461"/>
+<rect x="19.25" y="26.00" width="7.00" height="28.00" rx="1.50" fill="#1b2461"/>
+<rect x="28.50" y="10.00" width="7.00" height="44.00" rx="1.50" fill="#1b2461"/>
+<rect x="37.75" y="20.00" width="7.00" height="34.00" rx="1.50" fill="#d2642e"/>
+<rect x="47.00" y="30.00" width="7.00" height="24.00" rx="1.50" fill="#1b2461"/>
+<path transform="translate(82.000 50.000) scale(0.050847 -0.050847)" d="M75 0V708H218V0Z" fill="#f7f2e9"/>
+<path transform="translate(95.881 50.000) scale(0.050847 -0.050847)" d="M1 0 277 708H437L710 0H556L512 121H199L155 0Z" fill="#f7f2e9"/>
+<path transform="translate(95.881 50.000) scale(0.050847 -0.050847)" d="M245 250H467L357 556Z" fill="#f7f2e9"/>
+<path transform="translate(131.017 50.000) scale(0.050847 -0.050847)" d="M75 0V708H218V132H577V0Z" fill="#f7f2e9"/>
+</svg>

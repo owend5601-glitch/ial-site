@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>IAL · L’IA linguistique des langues guinéennes</title>
+  <meta name="description" content="IAL fabrique, avec des locuteurs guinéens rémunérés, les données et les modèles qui permettent à Jeli, l’assistant, de comprendre le soussou, le pular, le maninka et le kpèlè — et les livre aux entreprises sous la forme d’une API.">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/ial.css">
+  <script src="config.js"></script>
+  <style>
+    /* Site vitrine IAL · Jeli (J17) : la page vient de la maquette ; les styles de mise en page sont en ligne, les composants viennent de ial.css. */
+    html, body { margin: 0; }
+    a { color: var(--indigo); } a:hover { color: var(--indigo-hover); }
+    .ial { -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+    .logo-nuit { display: none; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="jour"]) .logo-jour { display: none; } :root:not([data-theme="jour"]) .logo-nuit { display: inline; } }
+    [data-theme="nuit"] .logo-jour { display: none; } [data-theme="nuit"] .logo-nuit { display: inline; }
+    @media (max-width: 760px) { .ial h1 { font-size: 40px !important; line-height: 44px !important; } .ial h2 { font-size: 28px !important; line-height: 34px !important; } }
+  </style>
+</head>
+<body>
+<div class="ial" style="min-height: 100px; box-sizing: border-box; display: flex; flex-direction: column; background: var(--coton); color: var(--ink); font-family: var(--font-sans); font-size: 17px; line-height: 26px;">
+
+  <header style="background: var(--coton-raised); border-bottom: 1px solid var(--line);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 40px; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <a href="./" aria-label="IAL, accueil" style="display: inline-flex; align-items: center; height: 72px;"><img class="logo-jour" src="assets/logos/ial-logo.svg" alt="IAL" style="height: 36px; width: auto;"><img class="logo-nuit" src="assets/logos/ial-logo-nuit.svg" alt="IAL" style="height: 36px; width: auto;"></a>
+      <nav aria-label="Navigation du site" style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; font-size: 15px; line-height: 22px; font-weight: 600;">
+        <a href="https://localhost:8443/demo" data-platform="/demo" style="color: var(--ink); text-decoration: none;">Jeli</a>
+        <a href="https://localhost:8443/" data-platform="/" style="color: var(--ink); text-decoration: none;">Contributeurs</a>
+        <a href="https://localhost:8443/donnees" data-platform="/donnees" style="color: var(--ink); text-decoration: none;">Données</a>
+        <a href="#entreprises" style="color: var(--ink); text-decoration: none;">Entreprises</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <a href="https://localhost:8443/connexion" data-platform="/connexion" class="ial-btn ial-btn--discret" style="text-decoration: none;"><span class="ial-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Se connecter</a>
+        <a href="#contact" class="ial-btn ial-btn--primaire" style="text-decoration: none;">Demander une démo</a>
+      </div>
+    </div>
+  </header>
+
+  <section style="background: var(--indigo-night); color: var(--on-night);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 40px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 48px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <span class="ial-chip ial-chip--langue" style="align-self: flex-start; background: transparent; border-color: var(--indigo-light); color: var(--on-night-muted);">soussou · pular · maninka · kpèlè</span>
+        <h1 style="margin: 0; font-size: 56px; line-height: 60px; font-weight: 700; letter-spacing: -0.02em; color: var(--on-night); text-wrap: pretty;">L’IA linguistique des langues guinéennes.</h1>
+        <p style="margin: 0; font-size: 19px; line-height: 30px; color: var(--on-night-muted); max-width: 540px; text-wrap: pretty;">IAL fabrique, avec des locuteurs guinéens rémunérés, les données et les modèles qui permettent à un assistant de comprendre les langues guinéennes — et les livre aux entreprises sous la forme d’une API. Cet assistant s’appelle Jeli.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#contact" class="ial-btn ial-btn--lg" style="text-decoration: none; background: var(--coton); color: var(--indigo-deep);">Demander une démo</a>
+          <a href="https://localhost:8443/demo" data-platform="/demo" class="ial-btn ial-btn--lg ial-btn--terre ial-btn--pilule" style="text-decoration: none;"><span class="ial-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></span>Parler à Jeli</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: var(--coton-raised); color: var(--ink); border-radius: 20px; padding: 24px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/logos/jeli-symbole.svg" alt="" style="width: 32px; height: 32px;">
+          <span style="font-size: 15px; line-height: 22px; font-weight: 600; color: var(--ink);">Jeli · dans l’application d’Omniia Pay</span>
+          <span class="ial-chip ial-chip--langue" style="margin-left: auto;">Exemple en français</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 4px;">
+          <p style="margin: 0; align-self: flex-end; max-width: 80%; background: var(--indigo-soft); color: var(--ink); border-radius: 20px 20px 6px 20px; padding: 10px 14px; font-size: 15px; line-height: 22px;">Envoie cinquante mille à maman</p>
+          <p lang="fr" style="margin: 0; align-self: flex-start; max-width: 85%; background: var(--terre-soft); color: var(--ink); border-radius: 20px 20px 20px 6px; padding: 10px 14px; font-family: var(--font-parole); font-size: 19px; line-height: 28px;">Envoyer 50 000 GNF à Maman ? Oui ou non.</p>
+          <p style="margin: 0; align-self: flex-end; max-width: 80%; background: var(--indigo-soft); color: var(--ink); border-radius: 20px 20px 6px 20px; padding: 10px 14px; font-size: 15px; line-height: 22px;">Oui</p>
+          <p lang="fr" style="margin: 0; align-self: flex-start; max-width: 85%; background: var(--terre-soft); color: var(--ink); border-radius: 20px 20px 20px 6px; padding: 10px 14px; font-family: var(--font-parole); font-size: 19px; line-height: 28px;">C’est fait, 50 000 GNF envoyés à Maman. Merci.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; line-height: 18px; color: var(--ink-muted);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><span>Montant et destinataire confirmés avant d’agir · signal d’inhabituel · relais vers un conseiller</span></div>
+      </div>
+    </div>
+    <img src="assets/logos/motif-bandes-indigo.svg" alt="" style="display: block; width: 100%; height: 96px; object-fit: cover; object-position: left bottom;">
+  </section>
+
+  <section style="background: var(--coton-raised); border-bottom: 1px solid var(--line);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 32px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 44px; line-height: 48px; font-weight: 700; letter-spacing: -0.02em; color: var(--indigo); font-variant-numeric: tabular-nums;">4</span><span style="font-size: 15px; line-height: 22px; color: var(--ink-muted);">langues guinéennes, plus le français de Guinée</span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 44px; line-height: 48px; font-weight: 700; letter-spacing: -0.02em; color: var(--indigo); font-variant-numeric: tabular-nums;">10</span><span style="font-size: 15px; line-height: 22px; color: var(--ink-muted);">tâches rémunérées pour les contributeurs</span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 44px; line-height: 48px; font-weight: 700; letter-spacing: -0.02em; color: var(--indigo); font-variant-numeric: tabular-nums;">40</span><span style="font-size: 15px; line-height: 22px; color: var(--ink-muted);">demandes du quotidien comprises par Jeli</span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 44px; line-height: 48px; font-weight: 700; letter-spacing: -0.02em; color: var(--indigo); font-variant-numeric: tabular-nums;">6</span><span style="font-size: 15px; line-height: 22px; color: var(--ink-muted);">canaux : application, WhatsApp, téléphone, SMS, USSD, hors ligne</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 40px 40px; display: flex; flex-direction: column; gap: 32px;">
+      <div style="max-width: 720px; display: flex; flex-direction: column; gap: 12px;">
+        <h2 style="margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); text-wrap: pretty;">Une plateforme qui collecte, valide et paie. Un assistant qui comprend déjà le quotidien.</h2>
+        <p style="margin: 0; color: var(--ink-muted); text-wrap: pretty;">Deux visages, une seule famille : IAL fabrique la matière, Jeli la met au service des gens.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: 24px;">
+        <article class="ial-card" style="display: flex; flex-direction: column; gap: 16px; padding: 32px;">
+          <img src="assets/logos/ial-symbole.svg" alt="" style="width: 56px; height: 56px;">
+          <h3 style="margin: 0; font-size: 24px; line-height: 30px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">IAL, la plateforme</h3>
+          <p style="margin: 0; color: var(--ink-muted); text-wrap: pretty;">Des locuteurs rémunérés via Omniia Pay lisent, répondent, traduisent, valident et transcrivent depuis leur téléphone. Chaque enregistrement est relu par deux pairs de la même langue avant d’être payé et versé au corpus.</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--ink);">
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--indigo); flex: none; margin-top: 3px;"><path d="M20 6 9 17l-5-5"/></svg><span>Corpus de parole avec fiche de données, consentements et licence</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--indigo); flex: none; margin-top: 3px;"><path d="M20 6 9 17l-5-5"/></svg><span>Qualité mesurée : contrôles, réputation, niveaux, jeu de test</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--indigo); flex: none; margin-top: 3px;"><path d="M20 6 9 17l-5-5"/></svg><span>Paie groupée et transparente, barème public</span></li>
+          </ul>
+          <a href="https://localhost:8443/" data-platform="/" class="ial-btn ial-btn--secondaire" style="text-decoration: none; align-self: flex-start;">Devenir contributeur</a>
+        </article>
+        <article class="ial-card" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; background: var(--terre-soft); border-color: var(--terre-soft);">
+          <img src="assets/logos/jeli-symbole.svg" alt="" style="width: 56px; height: 56px;">
+          <h3 style="margin: 0; font-size: 24px; line-height: 30px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">Jeli, l’assistant</h3>
+          <p style="margin: 0; color: var(--ink-muted); text-wrap: pretty;">Le griot qui écoute, comprend et transmet. Il tient les comptes, les rappels et les habitudes de chacun, confirme avant d’agir, signale l’inhabituel et passe la main à un conseiller quand il ne comprend pas.</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--ink);">
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--terre); flex: none; margin-top: 3px;"><path d="M20 6 9 17l-5-5"/></svg><span>Comprend le texte et la voix en soussou, pular, maninka, kpèlè et français</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--terre); flex: none; margin-top: 3px;"><path d="M20 6 9 17l-5-5"/></svg><span>Répond avec les voix des contributeurs, lit les montants dans la langue</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--terre); flex: none; margin-top: 3px;"><path d="M20 6 9 17l-5-5"/></svg><span>Présent sur six canaux, jusque hors ligne dans l’application du client</span></li>
+          </ul>
+          <a href="https://localhost:8443/demo" data-platform="/demo" class="ial-btn ial-btn--terre" style="text-decoration: none; align-self: flex-start;">Essayer Jeli</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 48px 40px 88px; display: flex; flex-direction: column; gap: 28px;">
+      <h2 style="margin: 0; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">Comment ça marche</h2>
+      <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 16px;">
+        <li class="ial-card" style="display: flex; flex-direction: column; gap: 10px; padding: 20px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo);">Étape 1</span><span style="font-size: 20px; line-height: 26px; font-weight: 600; color: var(--ink);">Collecter</span><span style="font-size: 15px; line-height: 22px; color: var(--ink-muted);">Lectures, réponses spontanées, traductions, voix prêtées à Jeli.</span></li>
+        <li class="ial-card" style="display: flex; flex-direction: column; gap: 10px; padding: 20px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo);">Étape 2</span><span style="font-size: 20px; line-height: 26px; font-weight: 600; color: var(--ink);">Valider</span><span style="font-size: 15px; line-height: 22px; color: var(--ink-muted);">Deux pairs par enregistrement, contrôles cachés, réputation.</span></li>
+        <li class="ial-card" style="display: flex; flex-direction: column; gap: 10px; padding: 20px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo);">Étape 3</span><span style="font-size: 20px; line-height: 26px; font-weight: 600; color: var(--ink);">Payer</span><span style="font-size: 15px; line-height: 22px; color: var(--ink-muted);">Lots de paie Omniia Pay, barème public, relevé par contributeur.</span></li>
+        <li class="ial-card" style="display: flex; flex-direction: column; gap: 10px; padding: 20px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo);">Étape 4</span><span style="font-size: 20px; line-height: 26px; font-weight: 600; color: var(--ink);">Entraîner</span><span style="font-size: 15px; line-height: 22px; color: var(--ink-muted);">Moteur d’intention, voix, transcription — ré-entraînés chaque semaine.</span></li>
+        <li class="ial-card" style="display: flex; flex-direction: column; gap: 10px; padding: 20px; background: var(--indigo-deep); border-color: var(--indigo-deep);"><span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-night-muted);">Étape 5</span><span style="font-size: 20px; line-height: 26px; font-weight: 600; color: var(--on-night);">Servir</span><span style="font-size: 15px; line-height: 22px; color: var(--on-night-muted);">Jeli répond aux clients des entreprises, dans leur langue, sur six canaux.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="entreprises" style="background: var(--coton-raised); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: flex; flex-direction: column; gap: 32px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px;">
+          <h2 style="margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); text-wrap: pretty;">Pour les entreprises : Jeli dans votre application, en une API.</h2>
+          <p style="margin: 0; color: var(--ink-muted); text-wrap: pretty;">Opérateurs de paiement, banques, services publics, assureurs : vos clients parlent leur langue, Jeli la comprend. Vous gardez votre marque, votre application et vos données.</p>
+        </div>
+        <a href="#contact" class="ial-btn ial-btn--primaire ial-btn--lg" style="text-decoration: none;">Demander une démo</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px;">
+        <article style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 14px; background: var(--coton); border: 1px solid var(--line);">
+          <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: var(--indigo-soft); color: var(--indigo);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></span>
+          <h3 style="margin: 0; font-size: 20px; line-height: 26px; font-weight: 600; color: var(--ink);">API et SDK</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 22px; color: var(--ink-muted);">Texte et voix, mémoire de l’utilisateur, confirmation des montants, signal d’inhabituel, brief du jour, webhooks. Un SDK web de 20 Ko, un moteur embarquable hors ligne.</p>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 14px; background: var(--coton); border: 1px solid var(--line);">
+          <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: var(--terre-soft); color: var(--terre);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg></span>
+          <h3 style="margin: 0; font-size: 20px; line-height: 26px; font-weight: 600; color: var(--ink);">Six canaux</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 22px; color: var(--ink-muted);">Votre application, WhatsApp, le téléphone, le SMS, l’USSD et le hors-ligne : la même compréhension, les mêmes réponses, la même mémoire partout.</p>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 14px; background: var(--coton); border: 1px solid var(--line);">
+          <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: var(--vert-soft); color: var(--vert);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
+          <h3 style="margin: 0; font-size: 20px; line-height: 26px; font-weight: 600; color: var(--ink);">Mesuré, transparent, facturable</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 22px; color: var(--ink-muted);">Un portail client : appels, compréhension par langue, demandes non couvertes, satisfaction, conseillers, base de connaissances et relevé d’usage mensuel.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 48px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <h2 style="margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); text-wrap: pretty;">Les données du corpus, construites avec des locuteurs consentants.</h2>
+        <p style="margin: 0; color: var(--ink-muted); text-wrap: pretty;">Un corpus de parole en langues guinéennes, documenté par une fiche de données, fourni sous licence aux équipes qui construisent des services ou de la recherche pour ces langues. Chaque licence finance la collecte suivante.</p>
+        <a href="https://localhost:8443/donnees" data-platform="/donnees" class="ial-btn ial-btn--secondaire" style="text-decoration: none; align-self: flex-start;">Voir les effectifs par langue</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div class="ial-card" style="padding: 20px; display: flex; flex-direction: column; gap: 4px;"><span id="dsRecordings" style="font-size: 32px; line-height: 38px; font-weight: 700; color: var(--indigo); font-variant-numeric: tabular-nums;">—</span><span style="font-size: 13px; line-height: 18px; color: var(--ink-muted);">enregistrements validés</span></div>
+        <div class="ial-card" style="padding: 20px; display: flex; flex-direction: column; gap: 4px;"><span id="dsHours" style="font-size: 32px; line-height: 38px; font-weight: 700; color: var(--indigo); font-variant-numeric: tabular-nums;">—</span><span style="font-size: 13px; line-height: 18px; color: var(--ink-muted);">heures de parole</span></div>
+        <div class="ial-card" style="padding: 20px; display: flex; flex-direction: column; gap: 4px;"><span id="dsSpeakers" style="font-size: 32px; line-height: 38px; font-weight: 700; color: var(--indigo); font-variant-numeric: tabular-nums;">—</span><span style="font-size: 13px; line-height: 18px; color: var(--ink-muted);">locuteurs</span></div>
+        <div class="ial-card" style="padding: 20px; display: flex; flex-direction: column; gap: 4px;"><span id="dsSentences" style="font-size: 32px; line-height: 38px; font-weight: 700; color: var(--indigo); font-variant-numeric: tabular-nums;">—</span><span style="font-size: 13px; line-height: 18px; color: var(--ink-muted);">phrases et situations</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: var(--indigo-night); color: var(--on-night-muted);">
+    <img src="assets/logos/motif-bandes-indigo.svg" alt="" style="display: block; width: 100%; height: 64px; object-fit: cover; object-position: right top; transform: scaleY(-1);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 48px 40px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 32px; font-size: 15px; line-height: 22px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <img src="assets/logos/ial-logo-nuit.svg" alt="IAL" style="height: 36px; width: auto; align-self: flex-start;">
+        <p style="margin: 0; max-width: 300px;">L’IA linguistique des langues guinéennes. Conakry, Guinée.</p>
+      </div>
+      <nav aria-label="Produits" style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-night);">Produits</span><a href="https://localhost:8443/demo" data-platform="/demo" style="color: var(--on-night-muted); text-decoration: none;">Jeli, l’assistant</a><a href="https://localhost:8443/integration" data-platform="/integration" style="color: var(--on-night-muted); text-decoration: none;">API et SDK</a><a href="https://localhost:8443/" data-platform="/" style="color: var(--on-night-muted); text-decoration: none;">Application contributeur</a><a href="https://localhost:8443/donnees" data-platform="/donnees" style="color: var(--on-night-muted); text-decoration: none;">Données du corpus</a></nav>
+      <nav aria-label="Entreprise" style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-night);">IAL</span><a href="https://localhost:8443/charte" data-platform="/charte" style="color: var(--on-night-muted); text-decoration: none;">Charte et comité linguistique</a><a href="https://localhost:8443/charte" data-platform="/charte" style="color: var(--on-night-muted); text-decoration: none;">Éthique et consentement</a><a href="https://localhost:8443/connexion" data-platform="/connexion" style="color: var(--on-night-muted); text-decoration: none;">Se connecter</a></nav>
+      <div id="contact" style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-night);">Contact</span><span id="siteContact">—</span><span>Conakry, Guinée</span></div>
+    </div>
+    <div style="border-top: 1px solid rgba(183, 192, 244, 0.2);">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; line-height: 18px;">
+        <span>© 2026 IAL — tous droits réservés</span>
+        <img src="assets/logos/jeli-par-ial-nuit.svg" alt="Jeli, par IAL" style="height: 28px; width: auto;">
+      </div>
+    </div>
+  </footer>
+</div>
+  <script>
+    // Effectifs du corpus et contact : /api/public/datasets (agrégats publics, aucun nom ni numéro).
+    (async () => {
+      try {
+        const d = await (await fetch((window.IAL_PLATFORM || '') + '/api/public/datasets', { mode: 'cors' })).json(); const fmt = (n) => (n || 0).toLocaleString('fr-FR');
+        document.getElementById('dsRecordings').textContent = fmt(d.totals.recordings); document.getElementById('dsHours').textContent = (d.totals.hours || 0).toLocaleString('fr-FR');
+        document.getElementById('dsSpeakers').textContent = fmt(d.totals.speakers); document.getElementById('dsSentences').textContent = fmt(d.totals.sentences);
+        if (d.contact) document.getElementById('siteContact').textContent = d.contact;
+      } catch (e) { /* effectifs indisponibles : les tirets restent */ }
+    })();
+  </script>
+  <script>
+    // Liens vers la plateforme : adresse de config.js (window.IAL_PLATFORM).
+    (() => { const base = (window.IAL_PLATFORM || '').replace(/\/$/, ''); if (!base) return; document.querySelectorAll('a[data-platform]').forEach((a) => { a.href = base + a.dataset.platform; }); })();
+  </script>
+</body>
+</html>
