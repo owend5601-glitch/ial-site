@@ -349,3 +349,8 @@ textarea.ial-field__input { resize: vertical; min-height: 96px; }
 .ial-liste__sous { font: 400 13px/18px var(--font-sans); color: var(--ink-muted); }
 .ial-liste__fin { display: flex; align-items: center; gap: var(--space-2); color: var(--ink-faint); }
 .ial-liste__fin .ial-ico { width: 20px; height: 20px; }
+
+/* J22 : code de vérification affiché en grand (WhatsApp par réponse) */
+.bigcode { font-size: 2.2rem; letter-spacing: 0.35em; text-align: center; font-weight: 700; margin: 12px 0 4px; font-variant-numeric: tabular-nums; }
+a.primary { display: block; text-align: center; text-decoration: none; padding: 13px 16px; box-sizing: border-box; border-radius: 12px; }
+#btnVerifySms { width: 100%; margin-top: 8px; min-height: 44px; }
